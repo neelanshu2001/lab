@@ -19,10 +19,10 @@ const pub=[{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standar
 
 const Publications=()=> {
     return (
-        <div className=''>
+        <div className=''  id='Publications'>
             
            <Navbar /> 
-           <div className='object-contain relative'>
+           <div className='object-contain relative' >
              <img src={bg} className="-mt-60 object-cover brightness-75 h-[90vh] w-full contrast-125 " />
              
              <div className=' text-center  font-bold text-white overflow-hidden  transition-all delay-100 duration-[1800ms] text-4xl md:text-5xl lg:text-6xl   absolute top-1/2 left-0 w-full'>
@@ -36,7 +36,7 @@ const Publications=()=> {
                  </div>
              </div>
              <div className="hover:cursor-default text-slate-800 font-mono text-5xl text-center ">
-             <div className='my-10' id='Research'>
+             <div className='my-10'>
             Conference
             <div className='mt-10'>
             <PublicationBox pub={pub} req={'conference'}/>

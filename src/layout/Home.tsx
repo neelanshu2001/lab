@@ -16,7 +16,7 @@ const cards=[
     description:'Still not convinced? Check out our recent publications'}
 ]
 const Home=()=> {
-    const[welcome,setWelcome]=useState(0);
+    const[welcome,setWelcome]=useState(12);
 
     const targets=document.querySelectorAll("#on-scroll");
     console.log(targets);
@@ -50,7 +50,7 @@ const Home=()=> {
             <div className='object-contain'>
              <img src={bg} className="-mt-60 object-cover brightness-75 h-[90vh] w-full  " />
              <div className={` flex flex-row justify-between absolute  top-1/2 -mt-20 left-0 drop-shadow-lg  w-full    font-bold text-white `}>
-                 <div id='on-scroll' className={`slide transition-all delay-100 duration-[1800ms]  ml-${welcome.toString()} py-auto backdrop-brightness-90 text-3xl md:text-5xl lg:text-5xl flex  items-center flex-col `} >
+                 <div id='on-scroll' className={`slide transition-all delay-100 duration-[1800ms]  ml-${welcome} py-auto backdrop-brightness-90 text-3xl md:text-5xl lg:text-5xl flex  items-center flex-col `} >
                     <div className='transition-all '>
                      Welcome to the Electro Lab
                      </div>
@@ -64,7 +64,7 @@ const Home=()=> {
                      </div>
                  </div>
                  
-                 <div className="opacity-90 mr-16 hidden xl:block">
+                 <div className="opacity-75 mx-auto w-2/5 hidden xl:flex  justify-center ">
                  <CarouselStruct />
                  </div>
              </div>
