@@ -1,8 +1,8 @@
-import React, { Component ,useState} from "react";
+import React, {FC, Component ,useState} from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Swipe from "react-easy-swipe";
 
-const Carousel =({CarouselData})=>  {
+const Carousel:FC<{CarouselData:any}> =({CarouselData})=>  {
   /*constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ const Carousel =({CarouselData})=>  {
     return (
       <div className="mt-8">
         <div className="max-w-lg h-72 flex overflow-hidden relative">
-          {CarouselData.map((slide, index) => {
+          {CarouselData.map((slide:any, index:number) => {
             return (
               <img
                 src={slide.image}

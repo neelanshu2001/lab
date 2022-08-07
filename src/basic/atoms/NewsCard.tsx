@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 import logo from '../../assets/logo.png'
-const NewsCard=({p})=> {
+const NewsCard:FC<{p:any}>=({p})=> {
    // console.log('Hello');
     return (
  

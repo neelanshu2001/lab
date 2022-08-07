@@ -1,6 +1,7 @@
 import React from 'react';
 import NewsCard from '../atoms/NewsCard';
-const NewsBox=({news})=>{
+import { FC } from 'react';
+const NewsBox:FC<{news:Array<object>}>=({news})=>{
     return (
         <div className="relative group  transition-all duration-1000  overflow-x-hidden ">
         <div className='flex flex-row animate-marquee group-hover:animate-none'>

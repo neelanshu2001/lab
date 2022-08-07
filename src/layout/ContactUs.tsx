@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../basic/molecules/Navbar';
 import bg from '../assets/bg.jpg'
-const ContactUs=(props)=>{
+const ContactUs=()=>{
     return (
         <div className=''>
             

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 import logo from '../../assets/logo.png'
-const ResearchCard=({item})=>{
+const ResearchCard:FC<{item:any}>=({item})=>{
     return (
       
              <div className=" w-full lg:max-w-full lg:flex">

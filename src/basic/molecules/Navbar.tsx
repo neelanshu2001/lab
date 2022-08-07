@@ -14,7 +14,7 @@ const navigation = [
   { name: 'Contact Us', href: '/contact', current: false },
 ]
 
-function classNames(...classes) {
+function classNames(...classes:any) {
   return classes.filter(Boolean).join(' ')
 }
 
@@ -51,7 +51,8 @@ const Navbar=()=> {
                         key={item.name}
                         onClick={()=>{
                           //console.log(item.name)
-                          document.getElementById(item.name).scrollIntoView({ behavior: 'smooth'});
+                          const ele=document.getElementById(item.name);
+                          ele!=null && ele.scrollIntoView({ behavior: 'smooth'});
                         }}
                         className={classNames(
                           item.current ? 'hover:cursor-pointer opacity-100 bg-slate-900 bg-opacity-50 text-white' : 'hover:cursor-pointer opacity-100 text-gray-300 hover:bg-opacity-25 hover:bg-slate-900 hover:text-white',

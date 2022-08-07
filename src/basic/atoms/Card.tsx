@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import PropTypes from 'prop-types';
 import cardImage from '../../assets/1.jpg'
 
 
-const Card=({name,description})=> {
+const Card:FC<{name:string,description:string}>=({name,description})=> {
    // console.log(name);
     return (
         <div className='hover:cursor-pointer hover:opacity-95 hover:text-blue-400 w-3/12'>

@@ -1,7 +1,11 @@
 import React from 'react';
 import ResearchCard from '../atoms/ResearchCard';
-
-const ResearchBox=({research})=>{
+import PropTypes from 'prop-types';
+import { FC } from 'react';
+/*interface Type{
+    research:Array<object>,
+}*/
+const ResearchBox : FC<{research:Array<object>}>=({research})=>{
     return (
         <div className='flex flex-col w-5/6 mx-auto shadow-lg'>
             {
@@ -15,6 +19,10 @@ const ResearchBox=({research})=>{
             
         </div>
     );
+}
+
+ResearchBox.propTypes={
+    research:PropTypes.array.isRequired,
 }
 
 export default ResearchBox;

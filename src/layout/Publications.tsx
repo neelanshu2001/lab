@@ -4,26 +4,20 @@ import bg from '../assets/bg_pub.jpg';
 import PublicationBox from '../basic/molecules/PublicationBox';
 
 
-const pub=[{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://en.wikipedia.org/wiki/Antenna_(radio)',type:'journal'}
-,{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'Nano atenna to cover city in spectrum',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'Nano atenna to cover city in spectrum',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'Nano atenna to cover city in spectrum',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'journal'},
-{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},
-{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',type:'conference'},]
+const pub=[{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://en.wikipedia.org/wiki/Antenna_(radio)',Type:'journal'}
+,{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',Type:'conference'},
+{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',Type:'conference'},
+{name:'Nano atenna to cover city in spectrum',link:'https://ieeexplore.ieee.org/document/9428648/references#references',Type:'conference'},
+{name:'Nano atenna to cover city in spectrum',link:'https://ieeexplore.ieee.org/document/9428648/references#references',Type:'conference'},
+{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',Type:'conference'},
+{name:'Nano atenna to cover city in spectrum',link:'https://ieeexplore.ieee.org/document/9428648/references#references',Type:'journal'},
+{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',Type:'conference'},
+{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',Type:'conference'},
+{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',Type:'conference'},
+{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',Type:'conference'},
+,]
 
-const Publications=(props)=> {
+const Publications=()=> {
     return (
         <div className=''>
             

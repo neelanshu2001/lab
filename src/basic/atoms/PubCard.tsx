@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const PubCard=({data,idx})=> {
+const PubCard:FC<{data:any,idx:number}>=({data,idx})=> {
     //console.log('Hello')
     return (
          

@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../basic/molecules/Navbar';
 import bg from '../assets/bg_student.jpg'
-const Students=(props)=> {
+const Students=()=> {
     return (
         <div className=''>
             

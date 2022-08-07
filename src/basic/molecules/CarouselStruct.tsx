@@ -64,7 +64,7 @@ const Carousel=()=> {
     setSlide({ ...current, slide: newSlide });
   };
 
-  const setCurrentSlide = (index) => {
+  const setCurrentSlide = (index:number) => {
     setSlide({ ...current,slide: index });
   };
 
@@ -78,7 +78,7 @@ const Carousel=()=> {
             className=" absolute left-0 top-2/4 text-3xl  text-white cursor-pointer"
           />
 
-          <Swipe onSwipeLeft={nextSlide} onSwipeRight={prevSlide}>
+         {/* <Swipe onSwipeLeft={nextSlide} onSwipeRight={prevSlide}>
             {CarouselData.map((slide, index) => {
               return (
                 <img
@@ -99,7 +99,7 @@ const Carousel=()=> {
                 />
               );
             })}
-          </Swipe>
+          </Swipe>*/}
 
           <div className="absolute w-full flex justify-center bottom-0 ">
             {CarouselData.map((element, index) => {
