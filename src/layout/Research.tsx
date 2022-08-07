@@ -9,7 +9,7 @@ const Research=(props)=> {
         <div className='my-10' id='Research'>
             Research
             <div className='mt-10 hover:cursor-default'>
-            <ResearchBox research={research}>
+            <ResearchBox research={research} />
             </div>
             
         </div>
