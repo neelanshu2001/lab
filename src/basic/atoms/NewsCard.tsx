@@ -4,7 +4,7 @@ const NewsCard:FC<{p:any}>=({p})=> {
    // console.log('Hello');
     return (
  
-            <div className="max-w-sm w-1/4 md:w-full lg:max-w-full lg:flex mx-2 md:mx-4">
+            <div className="max-w-sm w-4/6 md:w-full lg:max-w-full lg:flex mx-2 md:mx-4">
                 
                 <div className="border-r border border-gray-400  lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-2 md:p-4 flex flex-col justify-between leading-normal">
                 <img src={logo} />

@@ -24,7 +24,7 @@ const NewsBox:FC<{news:Array<object>}>=({news})=>{
             }) }
         </div>
     </div>
-    <div className="flex md:hidden justify-center ">
+    <div className="block  md:hidden ">
     <Carousel autoPlay={true}  infiniteLoop={true} interval={1500} showStatus={false} showThumbs={false} showIndicators={false} showArrows={true} >
             
             {news.map((p, idx) => {

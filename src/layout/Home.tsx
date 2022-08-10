@@ -89,7 +89,7 @@ const Home=()=> {
                     </div>
                 
                  </div>
-                  <div className={`my-8 `}  >
+                  <div className={`my-8  `}  >
                 <CardStrip cards={cards}/>
                 </div>
                 <News />

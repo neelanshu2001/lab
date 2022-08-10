@@ -6,7 +6,7 @@ import cardImage from '../../assets/1.jpg'
 const Card:FC<{name:string,description:string}>=({name,description})=> {
    // console.log(name);
     return (
-        <div className='hover:cursor-pointer hover:opacity-95 hover:text-blue-400 w-3/12'>
+        <div className='hover:cursor-pointer hover:opacity-95 hover:text-blue-400 w-28'>
         <div className="max-w-sm rounded overflow-hidden shadow-2xl">
         <img className="w-full h-24 lg:h-48 " src={cardImage} alt="Sunset in the mountains" />
         <div className="px-2 md:px-6 pt-2 md:pt-4">
