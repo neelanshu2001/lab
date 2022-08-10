@@ -48,9 +48,9 @@ const Home=()=> {
         
           <div className="  w-full mx-auto relative ">
             <div className='object-contain'>
-             <img src={bg} className="-mt-60 object-cover brightness-75 h-[90vh] w-full  " />
-             <div className={` flex flex-row justify-between absolute  top-1/2 -mt-20 left-0 drop-shadow-lg  w-full    font-bold text-white `}>
-                 <div id='on-scroll' className={`slide transition-all delay-100 duration-[1800ms]  ml-12 py-auto backdrop-brightness-90 text-3xl md:text-5xl lg:text-5xl flex  items-center flex-col `} >
+             <img src={bg} className="-mt-60 object-cover brightness-75 h-[75vh] md:h-[90vh] w-full  " />
+             <div className={` flex flex-row justify-between absolute  top-1/2 md:-mt-20 left-0 drop-shadow-lg  w-full    font-bold text-white `}>
+                 <div id='on-scroll' className={`slide transition-all delay-100 duration-[1800ms] text-center md:ml-12 py-auto backdrop-brightness-90 text-3xl md:text-5xl lg:text-5xl flex  items-center flex-col `} >
                     <div className='transition-all '>
                      Welcome to the Electro Lab
                      </div>
@@ -71,13 +71,13 @@ const Home=()=> {
              </div>
            </div>
            <div>
-            <div className="text-slate-800 font-mono text-5xl text-center flex flex-col justify-items-center mx-auto mt-16 ">
-                <div className={`text-5xl font-semibold font-sans `} >
+            <div className=" text-3xl md:text-5xl text-slate-800 font-mono  text-center flex flex-col justify-items-center mx-auto mt-4 md:mt-16 ">
+                <div className={` font-semibold font-sans `} >
                 About Us
                 </div>
                 
-                <div className="w-4/6 text-lg  mx-auto">
-                    <div className="text-slate-900 flex flex-row justify-center justify-items-center text-start text font-sans text-base gap-x-4 mt-10">
+                <div className="w-11/12 md:w-4/6 text-sm md:text-lg  mx-auto">
+                    <div className="text-slate-900 flex flex-row justify-center justify-items-center text-start font-sans text-xs md:text-base gap-x-1 md:gap-x-4 mt-4 md:mt-10">
                         <div className="">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem necessitatibus expedita nihil voluptate corporis distinctio ullam ducimus repudiandae minima inventore, incidunt nisi, dolores nemo quas explicabo? Pariatur nihil fugiat aspernatur!Lorem Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque odit inventore assumenda excepturi quia aspernatur. Molestiae, quae aperiam accusamus laborum in numquam recusandae quaerat. Quod accusantium quam fugit corporis cum.
               

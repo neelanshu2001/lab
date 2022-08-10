@@ -7,7 +7,7 @@ const news=[{news:'New position available',date:new Date(),user:'Neelanshu Garg'
 {news:'New position available',date:new Date(),user:'Neelanshu Garg'}];
 const News=()=> {
     return (
-        <div className='hover:cursor-default' id='News'>
+        <div className='hover:cursor-default font-semibold font-sans' id='News'>
             News
             <div className='mt-10'>
             <NewsBox news={news} />

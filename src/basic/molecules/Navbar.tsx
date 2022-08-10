@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
+import { Fragment,useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import {Link} from 'react-router-dom';
@@ -10,7 +10,7 @@ const navigation = [
   { name: 'Research', href: '/', current: false },
   { name: 'Publications', href: '/publications', current: false },
   {name:'Students',href:'/students',current:false},
-  {name:'Positions',href:'/positions',current:false},
+  //{name:'Positions',href:'/positions',current:false},
   { name: 'Contact Us', href: '/contact', current: false },
 ]
 
@@ -37,7 +37,7 @@ const Navbar=()=> {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center md:items-stretch md:justify-start">
-                <div className="text-white font-semibold text-3xl opacity-90">
+                <div className="text-white font-semibold text-xl md:text-3xl opacity-90">
                     RadioLab, IITI
                 </div>
               </div>
