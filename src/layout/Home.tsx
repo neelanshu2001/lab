@@ -78,11 +78,11 @@ const Home=()=> {
                 
                 <div className="w-11/12 md:w-4/6 text-sm md:text-lg  mx-auto">
                     <div className="text-slate-900 flex flex-row justify-center justify-items-center text-start font-sans text-xs md:text-base gap-x-1 md:gap-x-4 mt-4 md:mt-10">
-                        <div className="">
+                        <div className="indent-2 text-justify">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem necessitatibus expedita nihil voluptate corporis distinctio ullam ducimus repudiandae minima inventore, incidunt nisi, dolores nemo quas explicabo? Pariatur nihil fugiat aspernatur!Lorem Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque odit inventore assumenda excepturi quia aspernatur. Molestiae, quae aperiam accusamus laborum in numquam recusandae quaerat. Quod accusantium quam fugit corporis cum.
               
                         </div>
-                        <div className="">
+                        <div className="indent-2 text-justify">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem necessitatibus expedita nihil voluptate corporis distinctio ullam ducimus repudiandae minima inventore, incidunt nisi, dolores nemo quas explicabo? Pariatur nihil fugiat aspernatur!Lorem Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque odit inventore assumenda excepturi quia aspernatur. Molestiae, quae aperiam accusamus laborum in numquam recusandae quaerat. Quod accusantium quam fugit corporis cum.
               
                         </div>
