@@ -21,7 +21,7 @@ const navigation = [
   }
 
 const Students=()=> {
-  const[students,setStudents]=useState([]);
+  const[students,setStudents]=useState<any[]>([]);
   const getStudents=useCallback(async()=>{
     try {
       const response= await client.getEntries({ content_type:'students'});
@@ -29,7 +29,8 @@ const Students=()=> {
       if(responseData)
       {
         const data=responseData.map((s)=>{
-          const {sys,fields}=s;
+          const sys=s.sys;
+          const fields:any=s.fields;
           const {id}=sys;
           const name=fields.name;
           const image= fields.image.fields.file.url;
