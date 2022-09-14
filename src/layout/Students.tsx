@@ -1,33 +1,11 @@
-import React from 'react';
+import React, { useEffect,useCallback,useState } from 'react';
 import Navbar from '../basic/molecules/Navbar';
 import bg from '../assets/bg_student.jpg'
 import gLeader from '../assets/gLeader.jpg'
 import PeopleBox from '../basic/molecules/PeopleBox';
-const data=[{
-    name:'Arnold Swchazenger',
-    image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc80bYJdDLcv9xJUpsvKZ1j7ng5RGp8_452w&usqp=CAU'
-},
-{
-    name:'Lara Hudson',
-    image:'https://www.artsci.utoronto.ca/sites/artsci.utoronto.ca/files/Student-Profile-AmiBaba.jpeg'
-},
-{name:'Wendy',
-image:'https://www.artsci.utoronto.ca/sites/artsci.utoronto.ca/files/Student-Profile-AmiBaba.jpeg'},
-{name:'Sincere Student',
-image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc80bYJdDLcv9xJUpsvKZ1j7ng5RGp8_452w&usqp=CAU'}
-]
+import {client} from '../client';
 
-const data2=[{name:'Sincere Student',
-image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc80bYJdDLcv9xJUpsvKZ1j7ng5RGp8_452w&usqp=CAU'}
-]
 
-const data3=[{
-    name:'Arnold Swchazenger',
-    image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc80bYJdDLcv9xJUpsvKZ1j7ng5RGp8_452w&usqp=CAU'
-},
-{name:'Sincere Student',
-image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc80bYJdDLcv9xJUpsvKZ1j7ng5RGp8_452w&usqp=CAU'}
-]
 const navigation = [
     { name: 'Post Doc', current: false },
     {name:'PhD',current:false},
@@ -41,7 +19,42 @@ const navigation = [
   function classNames(...classes:any) {
     return classes.filter(Boolean).join(' ')
   }
+
 const Students=()=> {
+  const[students,setStudents]=useState([]);
+  const getStudents=useCallback(async()=>{
+    try {
+      const response= await client.getEntries({ content_type:'students'});
+      const responseData=response.items
+      if(responseData)
+      {
+        const data=responseData.map((s)=>{
+          const {sys,fields}=s;
+          const {id}=sys;
+          const name=fields.name;
+          const image= fields.image.fields.file.url;
+          const programme=fields.programme;
+          const updatedS={id,name,programme,image}
+          return updatedS;
+        })
+        setStudents(data);
+        console.log(data)
+      }
+      
+    } catch (error) {
+      console.log(error)
+    }
+  },[])
+  const getLeader=async()=>{
+    try {
+      const response=await client.getEntries({});
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(()=>{
+    getStudents()
+  },[])
     return (
         <div className=''>
             
@@ -105,25 +118,33 @@ const Students=()=> {
             Post Doctorals
             </div>
             <div className="w-5/6 mx-auto mt-4 md:mt-12">
-                <PeopleBox data={data}/>
+                <PeopleBox data={students.filter(student=>{
+                  return student.programme==='Post Doc'
+                })}/>
             </div> 
             <div className="font-serif text-xl md:text-3xl my-2 md:my-4" id='PhD'>
             PhD
             </div>
             <div className="w-5/6 mx-auto mt-4 md:mt-12">
-                <PeopleBox data={data2}/>
+                <PeopleBox data={students.filter(student=>{
+                  return student.programme==='PhD'
+                })}/>
             </div>
             <div className="font-serif text-xl md:text-3xl my-2 md:my-4" id='MTech'>
             M Tech
             </div>
             <div className="w-5/6 mx-auto mt-4 md:mt-12">
-                <PeopleBox data={data3}/>
+                <PeopleBox data={students.filter(student=>{
+                  return student.programme==='MTech'
+                })}/>
             </div>
             <div className="font-serif text-xl md:text-3xl my-2 md:my-4" id='BTech'>
             B Tech
             </div>
             <div className="w-5/6 mx-auto mt-4 md:mt-12">
-                <PeopleBox data={data}/>
+                <PeopleBox data={students.filter(student=>{
+                  return student.programme==='BTech'
+                })} />
             </div>
           </div>
          
