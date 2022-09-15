@@ -22,6 +22,8 @@ const navigation = [
 
 const Students=()=> {
   const[students,setStudents]=useState<any[]>([]);
+  const[leader,setLeader]=useState<any>({name:'',img:'',description:'',optional:''});
+  const[loading,setLoading]=useState(true);
   const getStudents=useCallback(async()=>{
     try {
       const response= await client.getEntries({ content_type:'students'});
@@ -39,7 +41,7 @@ const Students=()=> {
           return updatedS;
         })
         setStudents(data);
-        console.log(data)
+        //console.log(data)
       }
       
     } catch (error) {
@@ -48,13 +50,19 @@ const Students=()=> {
   },[])
   const getLeader=async()=>{
     try {
-      const response=await client.getEntries({});
+      const response=await client.getEntry('5nGUzkEOPK80ANTfnBFCAr');
+      const data:any=response.fields;
+      setLeader({name:data.name,img:data.image.fields.file.url,description:data.description1, optional:data.description2})
+      //console.log(leader)
     } catch (error) {
       console.log(error);
     }
   }
   useEffect(()=>{
+    setLoading(true);
     getStudents()
+    getLeader()
+    setLoading(false);
   },[])
     return (
         <div className=''>
@@ -92,26 +100,21 @@ const Students=()=> {
                  </div>
                  </div>
              </div>
+             {!loading && (
           <div className="my-10 md:w-5/6 px-2 md:px-0 mx-auto">
             <div className="font-serif text-xl md:text-3xl my-2 md:my-4">
             Group Leader
             </div>
             <div className="w-100% md:w-5/6 mx-auto mt-4 md:mt-12">
                 <div className="flex flex-intial jusitfy-between">
-                <img src={gLeader} className='h-44 md:h-72 lg:h-96 object-fill' />
+                <img src={leader.img} className='h-44 md:h-72 lg:h-96 object-fill' />
                 <div className="text-xs md:text-sm lg:text-base text-jusitfy indent-2 md:indent-8 mx-2 md:mx-4 lg:mx-8">
                     <div className="">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt dolores qui nulla deleniti, culpa quisquam, odit eveniet omnis perferendis dolore accusamus tempore sunt magnam labore vitae eaque fuga ipsa alias.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt dolores qui nulla deleniti, culpa quisquam, odit eveniet omnis perferendis dolore accusamus tempore sunt magnam labore vitae eaque fuga ipsa alias.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt dolores qui nulla deleniti, culpa quisquam, odit eveniet omnis perferendis dolore accusamus tempore sunt magnam labore vitae eaque fuga ipsa alias.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt dolores qui nulla deleniti, culpa quisquam, odit eveniet omnis perferendis dolore accusamus tempore sunt magnam labore vitae eaque fuga ipsa alias.
-                    </div>
+                      {leader.description}
+                       </div>
                     <div className="indent-0 my-2 hidden md:block">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt dolores qui nulla deleniti, culpa quisquam, odit eveniet omnis perferendis dolore accusamus tempore sunt magnam labore vitae eaque fuga ipsa alias.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt dolores qui nulla deleniti, culpa quisquam, odit eveniet omnis perferendis dolore accusamus tempore sunt magnam labore vitae eaque fuga ipsa alias.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt dolores qui nulla deleniti, culpa quisquam, odit eveniet omnis perferendis dolore accusamus tempore sunt magnam labore vitae eaque fuga ipsa alias.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt dolores qui nulla deleniti, culpa quisquam, odit eveniet omnis perferendis dolore accusamus tempore sunt magnam labore vitae eaque fuga ipsa alias.
-                    </div>
+                   {leader.optional}
+                     </div>
                     </div>
                 </div>
             </div>
@@ -147,7 +150,7 @@ const Students=()=> {
                   return student.programme==='BTech'
                 })} />
             </div>
-          </div>
+          </div>)}
          
          </div>
     );
