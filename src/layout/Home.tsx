@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect,useState} from 'react';
 import bg from '../assets/bg.jpg'
 import Navbar from '../basic/molecules/Navbar';
 import CardStrip from '../basic/molecules/CardStrip'
@@ -7,6 +7,9 @@ import iiti from '../assets/iiti.png';
 import logo from '../assets/logo.png'
 import News from './News';
 import Research from './Research';
+import {client} from '../client'
+
+
 const cards=[
     {name:'Research',
     description:'The research fields in which the lab is focused. The cureent research work and available positions'},
@@ -17,9 +20,111 @@ const cards=[
 ]
 const Home=()=> {
     const[welcome,setWelcome]=useState(12);
-
+    const[loading,setLoading]=useState(true);
+    const [research,setResearch]=useState<any[]>([]);
+    const [carouselData,setCarousel]=useState<any[]>([]);
+    const [news,setNews]=useState<any[]>([]);
+    const [desc,setDesc]=useState<any>();
+    const [desc2,setDesc2]=useState<any>();
+    const getData=async()=>{
+        const response=await client.getEntry('6jWMUP3kkgPXQBrn44onsj');
+        console.log(response);
+        try {
+            
+        if(response.fields)
+        {
+            const fields:any=response.fields;
+            setDesc(fields.about1);
+            setDesc2(fields.about2);
+        }
+        } catch (error) {
+            console.log(error)
+        }
+        
+    }
+    const getCarousel=async()=>{
+        const response=await client.getEntry('68k0zzyY4alZFzRQe6ds6H');
+        //console.log(response.fields.images);
+        try {
+            if(response.fields)
+            {
+                const fields:any=response.fields
+                const data=fields.images.map((cur:any)=>{
+                   
+                    const image=cur.fields.file.url;
+                    return {image};
+                })
+                //console.log(data);
+                setCarousel(data);
+                //console.log(response);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+      
+        
+        
+        
+    }
+    const getResearch=async()=>{
+        try {
+            const response=await client.getEntries({content_type:'research'})
+            const responseData=response.items;
+            if(responseData)
+            {
+                const data=responseData.map((s)=>{
+                const sys=s.sys;
+                const fields:any=s.fields;
+                const {id}=sys;
+                const title=fields.title;
+                const image= fields.image.fields.file.url;
+                const description=fields.description;
+                const updatedS={id,title,description,image}
+                return updatedS;
+                })
+               // console.log(data)
+            setResearch(data);
+            }
+           // console.log(research)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    const getNews=async()=>{
+        try {
+            const response=await client.getEntries({content_type:'news'})
+            const responseData=response.items;
+            if(responseData)
+            {
+                const data=responseData.map((s)=>{
+                const sys=s.sys;
+                const fields:any=s.fields;
+                const {id}=sys;
+                const title=fields.title;
+                const image= fields.image.fields.file.url;
+                const description=fields.description;
+                const date=fields.date
+                const updatedS={id,title,description,image,date}
+                return updatedS;
+                })
+                //console.log(data)
+            setNews(data);
+            }
+           // console.log(research)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    useEffect(()=>{
+        setLoading(true);
+        getResearch()
+        getNews()
+        getCarousel()
+        getData()
+        setLoading(false);
+    },[])
     const targets=document.querySelectorAll("#on-scroll");
-    console.log(targets);
+    //console.log(targets);
    const observer=new IntersectionObserver((targets)=>{
     targets.forEach((target)=>{
         if(target.isIntersecting)
@@ -42,10 +147,12 @@ const Home=()=> {
    })
   
     return (
-        <div id='Home'>
-            
-           <Navbar /> 
         
+         <div id='Home'>
+         
+           <Navbar /> 
+           ({!loading &&( 
+            <React.Fragment>
           <div className="  w-full mx-auto relative ">
             <div className='object-contain'>
              <img src={bg} className="-mt-60 object-cover brightness-75 h-[75vh] md:h-[90vh] w-full  " />
@@ -65,7 +172,7 @@ const Home=()=> {
                  </div>
                  
                  <div className="opacity-75 mx-auto w-2/5 hidden xl:flex  justify-center ">
-                 <CarouselStruct />
+                 <CarouselStruct carouselData={carouselData}/>
                  </div>
              </div>
              </div>
@@ -79,12 +186,10 @@ const Home=()=> {
                 <div className="w-11/12 md:w-4/6 text-sm md:text-lg  mx-auto">
                     <div className="text-slate-900 flex flex-row justify-center justify-items-center text-start font-sans text-xs md:text-base gap-x-1 md:gap-x-4 mt-4 md:mt-10">
                         <div className="indent-2 text-justify">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem necessitatibus expedita nihil voluptate corporis distinctio ullam ducimus repudiandae minima inventore, incidunt nisi, dolores nemo quas explicabo? Pariatur nihil fugiat aspernatur!Lorem Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque odit inventore assumenda excepturi quia aspernatur. Molestiae, quae aperiam accusamus laborum in numquam recusandae quaerat. Quod accusantium quam fugit corporis cum.
-              
+                       {desc}
                         </div>
                         <div className="indent-2 text-justify">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem necessitatibus expedita nihil voluptate corporis distinctio ullam ducimus repudiandae minima inventore, incidunt nisi, dolores nemo quas explicabo? Pariatur nihil fugiat aspernatur!Lorem Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque odit inventore assumenda excepturi quia aspernatur. Molestiae, quae aperiam accusamus laborum in numquam recusandae quaerat. Quod accusantium quam fugit corporis cum.
-              
+                        {desc2}
                         </div>
                     </div>
                 
@@ -92,12 +197,14 @@ const Home=()=> {
                   <div className={`my-8  `}  >
                 <CardStrip cards={cards}/>
                 </div>
-                <News />
-                <Research />
+                <News news={news} />
+                <Research research={research}/>
             </div>
            </div>
+           </React.Fragment>)})
            
         </div>
+     
     );
 }
 
