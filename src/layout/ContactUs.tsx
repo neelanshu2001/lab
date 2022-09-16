@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../basic/molecules/Navbar';
-import bg from '../assets/bg.jpg'
+import bg from '../assets/bg.jpg';
+import Loading from '../basic/molecules/Loading';
+
 const ContactUs=()=>{
+  const [loading,setLoading]=useState(true);
+  useEffect(()=>{
+    setLoading(true);
+    setTimeout(()=>{
+      setLoading(false);
+    },1000)
+  },[])
     return (
-        <div className='overflow-hidden'>
+      <div className="">
+        {!loading ?
+        (<div className='overflow-hidden'>
             
            <Navbar /> 
            <div className='object-contain relative '>
@@ -106,8 +117,9 @@ const ContactUs=()=>{
         </div>
         </div>
       </div>
-         </div> 
-         
+         </div> ): <Loading/>
+        }
+         </div>
     );
 }
 

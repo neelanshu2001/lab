@@ -4,6 +4,7 @@ import bg from '../assets/bg_student.jpg'
 import gLeader from '../assets/gLeader.jpg'
 import PeopleBox from '../basic/molecules/PeopleBox';
 import {client} from '../client';
+import Loading from '../basic/molecules/Loading';
 
 
 const navigation = [
@@ -62,9 +63,14 @@ const Students=()=> {
     setLoading(true);
     getStudents()
     getLeader()
-    setLoading(false);
+    setTimeout(()=>{
+      setLoading(false);
+    },1000)
+    
   },[])
     return (
+      <React.Fragment>
+      {!loading ? (
         <div className=''>
             
            <Navbar /> 
@@ -100,7 +106,7 @@ const Students=()=> {
                  </div>
                  </div>
              </div>
-             {!loading && (
+            
           <div className="my-10 md:w-5/6 px-2 md:px-0 mx-auto">
             <div className="font-serif text-xl md:text-3xl my-2 md:my-4">
             Group Leader
@@ -150,9 +156,11 @@ const Students=()=> {
                   return student.programme==='BTech'
                 })} />
             </div>
-          </div>)}
+          </div>
          
          </div>
+      ): <Loading/>}
+      </React.Fragment>
     );
 }
 

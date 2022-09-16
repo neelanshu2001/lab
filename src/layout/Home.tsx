@@ -8,6 +8,7 @@ import logo from '../assets/logo.png'
 import News from './News';
 import Research from './Research';
 import {client} from '../client'
+import Loading from '../basic/molecules/Loading';
 
 
 const cards=[
@@ -121,7 +122,10 @@ const Home=()=> {
         getNews()
         getCarousel()
         getData()
-        setLoading(false);
+        setTimeout(()=>{
+            setLoading(false);
+        },1000)
+        
     },[])
     const targets=document.querySelectorAll("#on-scroll");
     //console.log(targets);
@@ -147,11 +151,12 @@ const Home=()=> {
    })
   
     return (
-        
+        <div className="">
+        {!loading ?( 
          <div id='Home'>
          
            <Navbar /> 
-           ({!loading &&( 
+           
             <React.Fragment>
           <div className="  w-full mx-auto relative ">
             <div className='object-contain'>
@@ -201,9 +206,12 @@ const Home=()=> {
                 <Research research={research}/>
             </div>
            </div>
-           </React.Fragment>)})
+           </React.Fragment>
            
         </div>
+        ):<Loading/>}
+        </div>
+    
      
     );
 }

@@ -3,6 +3,7 @@ import Navbar from '../basic/molecules/Navbar';
 import bg from '../assets/bg_pub.jpg';
 import PublicationBox from '../basic/molecules/PublicationBox';
 import {client} from '../client'
+import Loading from '../basic/molecules/Loading';
 
 // const pub=[{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://en.wikipedia.org/wiki/Antenna_(radio)',Type:'journal'}
 // ,{name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',Type:'conference'},
@@ -36,6 +37,7 @@ const navigation = [
     return classes.filter(Boolean).join(' ')
   }
 const Publications=()=> {
+  const [loading,setLoading]=useState(false);
   const [pub,setPub]=useState<any[]>([]);
   const getPub=async()=>{
     const response=await client.getEntries({content_type:'publication'});
@@ -53,10 +55,16 @@ const Publications=()=> {
     }
   }
   useEffect(()=>{
+    setLoading(true);
     getPub()
+    setTimeout(()=>{
+      setLoading(false);
+    },1000)
   },[])
     return (
-        <div className=''  id='Publications'>
+      <div className="">
+        {!loading ?
+        (<div className=''  id='Publications'>
             
            <Navbar /> 
            <div className='object-contain relative' >
@@ -118,8 +126,9 @@ const Publications=()=> {
         </div>
           
          
+         </div>): <Loading/>
+        }
          </div>
-
     );
 }
 
