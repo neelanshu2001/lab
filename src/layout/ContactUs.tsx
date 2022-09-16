@@ -9,7 +9,7 @@ const ContactUs=()=>{
     setLoading(true);
     setTimeout(()=>{
       setLoading(false);
-    },1000)
+    },1400)
   },[])
     return (
       <div className="">

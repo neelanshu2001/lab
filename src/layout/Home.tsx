@@ -124,7 +124,7 @@ const Home=()=> {
         getData()
         setTimeout(()=>{
             setLoading(false);
-        },1000)
+        },1400)
         
     },[])
     const targets=document.querySelectorAll("#on-scroll");

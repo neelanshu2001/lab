@@ -59,7 +59,7 @@ const Publications=()=> {
     getPub()
     setTimeout(()=>{
       setLoading(false);
-    },1000)
+    },1400)
   },[])
     return (
       <div className="">

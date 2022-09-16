@@ -65,7 +65,7 @@ const Students=()=> {
     getLeader()
     setTimeout(()=>{
       setLoading(false);
-    },1000)
+    },1400)
     
   },[])
     return (
