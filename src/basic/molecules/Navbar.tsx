@@ -4,21 +4,12 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import {Link} from 'react-router-dom';
 
-const navigation = [
-  { name: 'Home', href: '/', current: true },
-  {name:'News',href:'/',current:false},
-  { name: 'Research', href: '/', current: false },
-  { name: 'Publications', href: '/publications', current: false },
-  {name:'Students',href:'/students',current:false},
-  //{name:'Positions',href:'/positions',current:false},
-  { name: 'Contact Us', href: '/contact', current: false },
-]
 
 function classNames(...classes:any) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Navbar=()=> {
+const Navbar=({navigation}:any)=> {
   return (
     <Disclosure as="nav" className=" py-2 sticky z-10 top-0 bg-black  backdrop-filter backdrop-blur-lg bg-opacity-30">
       {({ open }) => (
@@ -46,7 +37,7 @@ const Navbar=()=> {
                 </div>
                 <div className="hidden md:block sm:ml-6">
                   <div className="flex space-x-3 ">
-                    {navigation.map((item) => (
+                    {navigation.map((item:any) => (
                       <Link to={item.href}
                         key={item.name}
                         onClick={()=>{
@@ -71,7 +62,7 @@ const Navbar=()=> {
 
           <Disclosure.Panel className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
+              {navigation.map((item:any) => (
                 <Link
                   key={item.name}
                   to={item.href}

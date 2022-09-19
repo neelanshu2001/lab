@@ -20,7 +20,16 @@ const navigation = [
   function classNames(...classes:any) {
     return classes.filter(Boolean).join(' ')
   }
-
+  const navigationMain = [
+    { name: 'Home', href: '/', current: false },
+    {name:'News',href:'/',current:false},
+    { name: 'Research', href: '/', current: false },
+    { name: 'Publications', href: '/publications', current: false },
+    {name:'Students',href:'/students',current:true},
+    //{name:'Positions',href:'/positions',current:false},
+    { name: 'Contact Us', href: '/contact', current: false },
+  ]
+  
 const Students=()=> {
   const[students,setStudents]=useState<any[]>([]);
   const[leader,setLeader]=useState<any>({name:'',img:'',description:'',optional:''});
@@ -73,7 +82,7 @@ const Students=()=> {
       {!loading ? (
         <div className=''>
             
-           <Navbar /> 
+           <Navbar navigation={navigationMain}/> 
            <div className='object-contain relative'>
              <img src={bg} className="-mt-60 object-cover brightness-75 h-[75vh] md:h-[90vh] w-full contrast-125  " />
              

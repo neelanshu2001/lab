@@ -27,6 +27,18 @@ const Home=()=> {
     const [news,setNews]=useState<any[]>([]);
     const [desc,setDesc]=useState<any>();
     const [desc2,setDesc2]=useState<any>();
+
+    const navigation = [
+        { name: 'Home', href: '/', current: true },
+        {name:'News',href:'/',current:false},
+        { name: 'Research', href: '/', current: false },
+        { name: 'Publications', href: '/publications', current: false },
+        {name:'Students',href:'/students',current:false},
+        //{name:'Positions',href:'/positions',current:false},
+        { name: 'Contact Us', href: '/contact', current: false },
+      ]
+      
+
     const getData=async()=>{
         const response=await client.getEntry('6jWMUP3kkgPXQBrn44onsj');
         console.log(response);
@@ -155,7 +167,7 @@ const Home=()=> {
         {!loading ?( 
          <div id='Home'>
          
-           <Navbar /> 
+           <Navbar navigation={navigation}/> 
            
             <React.Fragment>
           <div className="  w-full mx-auto relative ">

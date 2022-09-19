@@ -2,6 +2,15 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../basic/molecules/Navbar';
 import bg from '../assets/bg.jpg';
 import Loading from '../basic/molecules/Loading';
+const navigation = [
+  { name: 'Home', href: '/', current: false},
+  {name:'News',href:'/',current:false},
+  { name: 'Research', href: '/', current: false },
+  { name: 'Publications', href: '/publications', current: false },
+  {name:'Students',href:'/students',current:false},
+  //{name:'Positions',href:'/positions',current:false},
+  { name: 'Contact Us', href: '/contact', current: true },
+]
 
 const ContactUs=()=>{
   const [loading,setLoading]=useState(true);
@@ -16,7 +25,7 @@ const ContactUs=()=>{
         {!loading ?
         (<div className='overflow-hidden'>
             
-           <Navbar /> 
+           <Navbar navigation={navigation}/> 
            <div className='object-contain relative '>
              <img src={bg} className="relative -mt-60 object-cover brightness-75 h-[90vh] w-full contrast-125  overflow-hidden" />
              

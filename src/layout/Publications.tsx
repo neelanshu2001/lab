@@ -23,6 +23,15 @@ import Loading from '../basic/molecules/Loading';
 // {name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',Type:'sci'},
 // {name:'"IEEE Standard Definitions of Terms for Antennas, IEEE Standard 145™–2013, Inst. for Electrical and Electron. Eng., New York", Dec. 2013.',link:'https://ieeexplore.ieee.org/document/9428648/references#references',Type:'sci'},
 // ,]
+const navigationMain = [
+  { name: 'Home', href: '/', current: false },
+  {name:'News',href:'/',current:false},
+  { name: 'Research', href: '/', current: false },
+  { name: 'Publications', href: '/publications', current: true},
+  {name:'Students',href:'/students',current:false},
+  //{name:'Positions',href:'/positions',current:false},
+  { name: 'Contact Us', href: '/contact', current: false },
+]
 
 const navigation = [
     { name: 'Conference', current: false },
@@ -66,7 +75,7 @@ const Publications=()=> {
         {!loading ?
         (<div className=''  id='Publications'>
             
-           <Navbar /> 
+           <Navbar navigation={navigationMain}/> 
            <div className='object-contain relative' >
              <img src={bg} className="-mt-60 object-cover brightness-75 h-[75vh] md:h-[90vh] w-full contrast-125 " />
              
